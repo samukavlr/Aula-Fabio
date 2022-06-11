@@ -1,0 +1,19 @@
+const renderButton=()=>{
+    gapi.singnin.render('botão',{
+        'cope': 'email profile hrrp://www.googleapis.com/auth/plus.login',
+        'width': 200,
+        'heigth': 100,
+        'theme': dark ,
+        'onsuccess': onsucces,
+        'onfailure': onfailure,
+    });
+}
+const onsuccess = () =>{
+    aleert("OK");
+
+}
+const onfailure =() =>{
+    alert( "FALHOU")
+    
+}
+
