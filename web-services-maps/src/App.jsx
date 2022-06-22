@@ -1,25 +1,42 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import './app.css';
-
+import 'https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js';
+import './app.css'
 
 function App() {
   
-  const position = [51.505, -0.09]
+   new ol.Map({
+    target: 'map',
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM(),
+        
+        
+      })
+    ],
+    view: new ol.View({
+      center: ol.proj.fromLonLat([-47.0615633,-22.8979047]),
+      zoom: 15
+    })
+  });
+  
   return (
+    <>
+       
     
-      <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
-        <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
-            <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-         </Marker>
-    </MapContainer>
-      
+    
+    
+    
+    
+  
+  
+    <h2>My Map</h2>
+    <div id="map" class="map"></div>
+    
+    
+  
+    
+    </>
+     
   )
 }
 export default App
